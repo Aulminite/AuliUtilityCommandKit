@@ -55,10 +55,86 @@ ascii -r 72 101 108 108 111
 ```
 #### Note: The -r flag is only necessary when converting a single character's worth of ascii value into character format.
 
+### 5. fold - display folder tree
+The fold command displays the contents of your current directory and a summary of subdirectories. BE CAUTIOUS WITH THIS COMMAND. It does not stop after printing some number of lines, so if you use it in root, it will print every single directory on the machine. The purpose is to locate folders and files within projects.
+Usage:
+```bash
+fold
+```
+Example Output:
+```
+C:\Users\REDACTED\Documents\GitHub\AuliUtilityCommandKit
+├┬──.git
+│├┬──hooks
+││└─── ...
+│├┬──info
+││└─── ...
+│├┬──logs
+││├┬──refs
+│││├┬──heads
+││││└─── ...
+│││├┬──remotes
+││││├┬──origin
+│││││└─── ...
+││││└─── ...
+│││└─── ...
+││└─── ...
+│├┬──objects
+││├┬──info
+│││└─── ...
+││├┬──pack
+│││└─── ...
+││└─── ...
+│├┬──refs
+││├┬──heads
+│││└─── ...
+││├┬──remotes
+│││├┬──origin
+││││└─── ...
+│││└─── ...
+││├┬──tags
+│││└─── ...
+││└─── ...
+│├───config
+│├───description
+│├───FETCH_HEAD
+│├───HEAD
+│├───index
+│├───packed-refs
+│└─── ...
+├┬──Linux Executables
+│└─── ...
+├┬──Source Code
+│├┬──linux
+││└─── ...
+│├┬──windows
+││└─── ...
+│└─── ...
+├┬──Windows Executables
+│├───ascii.exe
+│├───colortest.exe
+│├───fold.exe
+│├───ptab.exe
+│├───sipc.exe
+│└─── ...
+├───README.md
+└─── ...
+```
+It is also color coded with the following scheme:
+| File Extensions                                          | Category        | Color    |
+| -------------------------------------------------------- | --------------- | -------- |
+| `.jpg`, `.jpeg`, `.png`, `.gif`, `.bmp`, `.tiff`         | Image           | Red      |
+| `.mp3`, `.wav`, `.flac`, `.aac`, `.ogg`                  | Audio           | Yellow   |
+| `.mp4`, `.avi`, `.mkv`, `.mov`, `.wmv`, `.flv`           | Video           | Orange   |
+| `.exe`, `.bat`, `.msi`, `.cmd`                           | Executable      | Blue     |
+| `.c`, `.cpp`, `.h`, `.py`, `.java`, `.js`, `.html`, `.css` | Code            | Purple   |
+| `.zip`, `.tar`, `.rar`, `.gz`, `.7z`                     | Compressed/Archive | White  |
+| `.txt`, `.md`, `.rtf`, `.log`                            | Text            | Turquoise|
+
 ## Setting up the Programs (Adding to PATH)
 
 ### Windows
-After compilation, you will have .exe files (e.g., `sipc.exe`, `colortest.exe`, `ptab.exe`, `ascii.exe`).
+After compilation, you will have .exe files (e.g., `sipc.exe`, `colortest.exe`, `ptab.exe`, `ascii.exe`, `fold.exe`).
 Move the executables to a directory of your choice (e.g., `C:\path\to\bin`).
 Add that directory to your system's PATH environment variable:
     Right-click This PC and select Properties.
@@ -68,7 +144,9 @@ Add that directory to your system's PATH environment variable:
     Click OK to apply the changes.
 Now you should be able to run the programs from any directory in Command Prompt or PowerShell.
     
-### Linux/macOS
+### Linux
+LINUX NOT YET SUPPORTED!
+
 Step 1: Move the Executables to a Directory in PATH
 First, choose or create a directory where you'd like to store the executables. A common directory for user binaries is `/usr/local/bin` or `~/bin` (the latter for a user-specific path).
 If you want to use `/usr/local/bin`, it’s a standard directory already included in most Linux distributions' PATH, so you can use that.
